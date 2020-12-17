@@ -10,6 +10,10 @@
 
 
 /* ---- Base Rules ---- */
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     background: rgb(136,203,171);
     background: linear-gradient(0deg, rgba(136,203,171,1) 0%, rgba(0,13,60,1) 100%);
@@ -71,18 +75,36 @@ section {
 }
 
 .navbar__menu li {
-    display: inline-block;
+    padding: 2%;
+    display: inline-flex;
+    cursor: pointer;
 }
 
 .navbar__menu .menu__link {
-    display: block;
     padding: 1em;
     font-weight: bold;
     text-decoration: none;
     color: #000;
 }
 
-.navbar__menu .menu__link:hover {
+@media only screen and (max-width: 40em) { 
+    .navbar__menu .menu__link {
+        display: block;
+    }
+
+    main{
+        display: inline-block;
+        position: relative;
+        top: 10em;
+    }
+
+}
+
+.navbar__menu .menu__link.your-active-class {
+    background-color: #cc1;
+}
+
+.navbar__menu .menu__link:hover, .navbar__menu .menu__link.your-active-class {
     background: #333;
     color: #fff;
     transition: ease 0.3s all;
@@ -206,6 +228,17 @@ section.your-active-class .landing__container::before {
 section.your-active-class .landing__container::after {
     opacity: 1;
     animation: rotate 5s linear 0s infinite forwards reverse;
+}
+
+.scrollToTopBtn {
+    cursor: pointer;
+    background-image: url('../assets/upBtn.png');
+    position: fixed;
+    bottom: 1em;
+    right: 1em;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
 }
 
 /* Section Active Styles Keyframe Animations */

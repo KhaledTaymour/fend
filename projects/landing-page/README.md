@@ -2,12 +2,25 @@
 
 ## Table of Contents
 
-* [Instructions](#instructions)
+* [Introduction](#introduction)
+* [File Structure](#fileStructure)
+* [Summary](#summary)
 
-## Instructions
+## Introduction
 
-The starter project has some HTML and CSS styling to display a static version of the Landing Page project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+This is the first project of the Web Development Professional Program from Udacity; it is a simple responsive landing page using HTML, JS and CSS.
 
-To get started, open `js/app.js` and start building out the app's functionality
+## File Structure
+```
+-assets
+    -upBtn.png
+-css
+    -styles.css
+-js
+-index.html
+-README.md
+```
 
-For specific, detailed instructions, look at the project instructions in the Udacity Classroom.
+## Summary
+page is divided into sections, the user can navigate through them using the nav bar,
+When the user scroll the active section will be styled with bubbled and its nav bar link is marked 
