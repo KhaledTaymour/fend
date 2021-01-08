@@ -48,8 +48,6 @@ const getWeatherData = async (_zipCode) => {
  * @param {object} data
  */
 const postData = async (url = "", data = {}) => {
-  console.log(data);
-
   const postRequest = await fetch(url, {
     method: "POST",
     credentials: "same-origin",
@@ -81,6 +79,7 @@ const updateUI = async (zipCode) => {
     document.querySelector("#content").innerHTML =
       allData[zipCode].userResponse;
   } else {
+    alert("the request failed");
     console.log("api.js: something went wrong in getProjectData");
   }
 };
