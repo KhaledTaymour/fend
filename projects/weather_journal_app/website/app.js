@@ -14,7 +14,7 @@ function handleGenerate(e) {
 
   getWeatherData(userZipCode).then((data) => {
     //catch error of wrong zip code
-    if (data.cod !== 200) {
+    if (data && data.cod !== 200) {
       alert(data.message);
     } else {
       postData("http://localhost:3005/addNewTemp", {
@@ -34,12 +34,28 @@ function handleGenerate(e) {
 const getWeatherData = async (_zipCode) => {
   let url = `https://api.openweathermap.org/data/2.5/weather?zip=${_zipCode}&units=metric&appid=${API_KEY}`;
 
-  const res = await fetch(url);
-  try {
-    return await res.json();
-  } catch (error) {
+  //#region using fetch
+  // const res = await fetch(url);
+  // try {
+  //   return await res.json();
+  // } catch (error) {
+  //   console.log("api.js getWeatherData: error", error);
+  // }
+  //#endregion
+
+  //#region using axios
+  const response = await axios.get(url)
+  .then(function (res) {
+    // handle success
+    return res.data;
+  })
+  .catch(function (error) {
+    // handle error
     console.log("api.js getWeatherData: error", error);
-  }
+    return error;
+  })
+  return response;
+  //#region 
 };
 
 /**
